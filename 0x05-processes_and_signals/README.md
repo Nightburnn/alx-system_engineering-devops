@@ -3,7 +3,6 @@
 
 
 This repository contains information and examples on the use of processes and signals in bash.
-![process](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/37975393ead381f4d27f268f7337c6d3013b4991.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230127%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230127T155400Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=38982bbfae773add9c8bf65dbbcd00b9da4eb1b894ec169759943af15e57819d)
 
 ## Processes
 
