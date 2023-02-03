@@ -1,4 +1,4 @@
-<img src="https://scontent.flos1-1.fna.fbcdn.net/v/t1.6435-9/109824219_3424993364219539_4435729165565164155_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=X6Iyjl8BbswAX_NXEjo&_nc_ht=scontent.flos1-1.fna&oh=00_AfBwDSIDK_Ai9kr3wsZ78KAZlkkCNd0WF_0JGNS8ebojQA&oe=64046A23">
+<img src="https://preview.redd.it/0rc2xx5913k71.jpg?auto=webp&s=44cc051a118e47f0a2860532d8b5c406ba3d6511">
 
 # Networking Basics 2
 
