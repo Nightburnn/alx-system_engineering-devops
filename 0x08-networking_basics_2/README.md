@@ -1,4 +1,4 @@
-<img src="https://preview.redd.it/0rc2xx5913k71.jpg?auto=webp&s=44cc051a118e47f0a2860532d8b5c406ba3d6511">
+<img src="https://preview.redd.it/0rc2xx5913k71.jpg?auto=webp&s=44cc051a118e47f0a2860532d8b5c406ba3d6511" width="200" height="200">
 
 # Networking Basics 2
 
