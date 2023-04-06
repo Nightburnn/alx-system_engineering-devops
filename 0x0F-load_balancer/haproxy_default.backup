@@ -1,0 +1,17 @@
+
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend clickviral-tech-frontend
+    bind *:80
+    default_backend clickviral-tech-backend
+
+backend clickviral-tech-backend
+    balance roundrobin
+    server 150523-web-01 18.210.18.234:80 check
+    server 150523-web-02 18.207.140.24:80 check
+
