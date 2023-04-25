@@ -1,56 +1,33 @@
 #!/usr/bin/python3
-"""This script sends a request to an api and prints the
-response
-"""
+"""Returns to-do list information for a given employee ID."""
 import requests
 from sys import argv
 
 
-def gather_data(emp_id: int):
-    """returns data about and employee from an api"""
+def display():
+    """returns API data"""
+    users = requests.get("http://jsonplaceholder.typicode.com/users")
+    for user in users.json():
+        if user.get('id') == int(argv[1]):
+            EMPLOYEE_NAME = (user.get('name'))
+            break
+    TOTAL_NUM_OF_TASKS = 0
+    NUMBER_OF_DONE_TASKS = 0
+    TASK_TITLE = []
 
-    url_todo = "https://jsonplaceholder.typicode.com/todos/"
-    url_users = "https://jsonplaceholder.typicode.com/users/"
+    todos = requests.get("http://jsonplaceholder.typicode.com/todos")
+    for task in todos.json():
+        if task.get('userId') == int(argv[1]):
+            TOTAL_NUM_OF_TASKS += 1
+            if task.get('completed') is True:
+                NUMBER_OF_DONE_TASKS += 1
+                TASK_TITLE.append(task.get('title'))
 
-    try:
-        completed = 0
-        payload1 = {"userId": emp_id}
-        payload2 = {"id": emp_id}
-
-        # make requests via the APIs
-        resp_todo = requests.get(url_todo, params=payload1)
-        resp_user = requests.get(url_users, params=payload2)
-
-        # deserialize the responses
-        emp_todo = resp_todo.json()
-        emp_info = resp_user.json()[0]
-
-        # get the total number of tasks for employee and the employee's name
-        total_todo = len(emp_todo)
-        emp_name = emp_info.get("name")
-
-        # get the number of completed tasks
-        for task in emp_todo:
-            if task.get("completed"):
-                completed += 1
-        # output
-        first_line = "Employee {} is done with tasks({}/{}):"
-        print(first_line.format(emp_name, completed, total_todo))
-
-        # print the title of the completed tasks
-        for task in emp_todo:
-            if task.get("completed"):
-                print("\t {}".format(task.get("title")))
-    except requests.exceptions.RequestException:
-        print(resp_todo.status_code)
+    print("Employee {} is done with tasks({}/{}):"
+          .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUM_OF_TASKS))
+    for task in TASK_TITLE:
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
-    try:
-        emp_id = argv[1]
-
-        if emp_id.isdigit():
-            emp_id = int(emp_id)
-            gather_data(emp_id)
-    except IndexError:
-        pass
+    display()
