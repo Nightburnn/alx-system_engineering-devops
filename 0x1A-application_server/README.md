@@ -88,4 +88,51 @@ Hello HBNB!ubuntu@150523-web-01:~/AirBnB_clone_v2/web_flask$
 ```
 
 --------------------------------------------------------------------------------------------------------------
-2. Task 1:
+2. Task 1: Now that you have your development environment set up, let’s get your production application server set up with Gunicorn on web-01, port 5000. You’ll need to install Gunicorn and any libraries required by your application. Your Flask application object will serve as a WSGI entry point into your application. This will be your production environment. As you can see we want the production and development of your application to use the same port, so the conditions for serving your dynamic content are the same in both environments.
+
+Requirements:
+
+Install Gunicorn and any other libraries required by your application.
+The Flask application object should be called app. (This will allow us to run and check your code)
+You will serve the same content from the same route as in the previous task. You can verify that it’s working by binding a Gunicorn instance to localhost listening on port 5000 with your application object as the entry point.
+In order to check your code, the checker will bind a Gunicorn instance to port 6000, so make sure nothing is listening on that port.
+
+	To Install Gunicorn on web-01 server Here are the steps:
+	Navigate to the project directory that contains your Flask application.
+
+	run the following command:
+
+```css 
+pip3 install gunicorn
+```
+check if anything is listening on port 6000
+
+```bash
+sudo lsof -i :6000
+```
+
+Then bind gunicorn
+
+```bash
+gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app
+```
+
+**Note** problems i faced. An Instance of flask was already running on port 5000 due to task 0, simple stop or kill the pid, also you can only bind gunicorn in the root Airbnb_clone_v2
+so in the end 
+
+on terminal 1:
+```bash
+$ gunicorn --bind 0.0.0.0:5000 web_flask.0-hello_route:app
+[2023-05-16 02:41:45 +0000] [1863114] [INFO] Starting gunicorn 20.1.0
+[2023-05-16 02:41:45 +0000] [1863114] [INFO] Listening at: http://0.0.0.0:5000 (1863114)
+[2023-05-16 02:41:45 +0000] [1863114] [INFO] Using worker: sync
+[2023-05-16 02:41:45 +0000] [1863116] [INFO] Booting worker with pid: 1863116
+```
+
+on terminal 2:
+```bash
+ubuntu@150523-web-01:~$ curl 127.0.0.1:5000/airbnb-onepage/
+Hello HBNB!ubuntu@150523-web-01:~$
+```
+--------------------------------------------------------------------------------------------------------------------
+3. TASK 2:
