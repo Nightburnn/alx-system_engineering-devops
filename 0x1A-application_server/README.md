@@ -9,20 +9,20 @@ Git clone your AirBnB_clone_v2 on your web-01 server.
 Configure the file web_flask/0-hello_route.py to serve its content from the route /airbnb-onepage/ on port 5000.
 Your Flask application object must be named app (This will allow us to run and check your code).
 
-	* Go to your web-01 server, clone Airbnb_clone_v2
-	* Install pip3
+	 Go to your web-01 server, clone Airbnb_clone_v2
+	 Install pip3
 	
 ```bash
 sudo apt install python3-pip
 ```
 
-	* Check if pip3 is already installed by running the command:
+	 Check if pip3 is already installed by running the command:
 
 ```css
 pip3 --version
 ```
 
-	* After pip3 is installed, you can use it to install Flask. Run the following command:
+	 After pip3 is installed, you can use it to install Flask. Run the following command:
 
 ```bash
 pip3 install flask
