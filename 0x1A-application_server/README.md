@@ -135,4 +135,57 @@ ubuntu@150523-web-01:~$ curl 127.0.0.1:5000/airbnb-onepage/
 Hello HBNB!ubuntu@150523-web-01:~$
 ```
 --------------------------------------------------------------------------------------------------------------------
-3. TASK 2:
+3. TASK 2: Building on your work in the previous tasks, configure Nginx to serve your page from the route /airbnb-onepage/
+
+Requirements:
+
+Nginx must serve this page both locally and on its public IP on port 80.
+Nginx should proxy requests to the process listening on port 5000.
+Include your Nginx config file as 2-app_server-nginx_config.
+Notes:
+
+In order to test this you’ll have to spin up either your production or development application server (listening on port 5000)
+In an actual production environment the application server will be configured to start upon startup in a system initialization script. This will be covered in the advanced tasks.
+You will probably need to reboot your server (by using the command $ sudo reboot) to have Nginx publicly accessible
+
+web-01
+Create a file named 2-app_server-nginx_config, Save the file in the appropriate location for Nginx configuration files. This location may vary depending on your operating system and Nginx installation. Common locations include /etc/nginx/conf.d/ or /etc/nginx/sites-available/.
+```bash
+sudo cd  /etc.nginx/sites-available
+```
+
+to create the file 
+```
+sudo vi filename
+```
+cofiguration may look like this:
+
+```css
+# Configures Nginx to serve the route /airbnb-onepage/ from AirBnB_clone_v2.
+
+server {
+    # Listen on port 80
+    listen      80 default_server;
+    listen      [::]:80 default_server ipv6only=on;
+
+    # Use IP of server as domain name
+    server_name ipaddressforweb-01;
+
+    # Customize HTTP response header
+    add_header  X-Served-By whateverheaderyouwant;
+
+    # Serve /airbnb-onepage/ route from AirBnB_clone_v2
+    location = /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
+    }
+
+    # 404 error page
+    error_page 404 /404.html;
+    location /404 {
+        root /var/www/html;
+        internal;
+    }
+}
+```
+
+
