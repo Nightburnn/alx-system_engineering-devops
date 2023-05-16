@@ -31,10 +31,12 @@ Remember to use pip3 instead of pip to ensure you're installing packages for Pyt
 	**Note** While trying to run flask on port 5000, i found out something else was running on port 5000
 	here are a few steps in killing or stopping what is running on port 5000
 	Stop the program using port 5000: Identify the program that is currently using port 5000 and stop it. This will free up the port so that you can use it for your Flask server. You can use the following command to identify the process using port 5000:
+
 ```css
 sudo lsof -i :5000
 ```
 This will show you the process ID (PID) of the program using port 5000. You can then use the PID to stop the program. For example, if the PID is 12345, you can stop it by running:
+
 ```bash
 sudo kill 12345
 ```
