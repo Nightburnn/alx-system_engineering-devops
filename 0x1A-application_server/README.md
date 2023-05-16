@@ -11,19 +11,23 @@ Your Flask application object must be named app (This will allow us to run and c
 
 	* Go to your web-01 server, clone Airbnb_clone_v2
 	* Install pip3
-	```bash
-	sudo apt install python3-pip
-	```
+	
+```bash
+sudo apt install python3-pip
+```
 
 	* Check if pip3 is already installed by running the command:
-	```css
-	pip3 --version
-	```
+
+```css
+pip3 --version
+```
 
 	* After pip3 is installed, you can use it to install Flask. Run the following command:
-	```bash
-	pip3 install flask
-	```
+
+```bash
+pip3 install flask
+```
+
 After the installation is finished, you should be able to use Flask in your Python scripts. You can verify the installation by running a test script that imports Flask.
 
 Remember to use pip3 instead of pip to ensure you're installing packages for Python 3 specifically.
